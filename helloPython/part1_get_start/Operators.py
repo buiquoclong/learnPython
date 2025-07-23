@@ -2,12 +2,21 @@
 a = 5
 b = 10
 
+# Cộng hai số
 addition = a + b
+
+# Trừ hai số
 subtraction = a - b
+
+# Nhân hai số
 multiplication = a * b
+
+# Chia hai số 
 division = a/b
+
 # chia lấy phần dư
 modulo = a%b
+
 # chia lấy phần nguyên
 floor = a//b
 
@@ -18,23 +27,35 @@ print(f"the result of division of {a} and {b} is: {division}")
 print(f"the result of modulo of {a} and {b} is: {modulo}")
 print(f"the result of floor of {a} and {b} is: {floor}")
 print("----------------------------------------------------------")
-# check true, false between two number
+# Kiểm tra so sánh giữa hai số
 x = 10
 y = 20
 
+# So sánh hai số
 equal_to = x == y
+
+# So sánh hai số không bằng nhau
 not_equal_to = x != y
 
 print(f"equal_to between {x} = {y} is: {equal_to}")
 print(f"not_equal_to between {x} != {y} is: {not_equal_to}")
 
 print("----------------------------------------------------------")
-# logical with True and False
+# toán tử logic (logical operators)
+# Toán tử logic được sử dụng để kết hợp các biểu thức điều kiện.
 p = True
 q = False
 
+# Toán tử logic AND
+# Trả về True nếu cả hai biểu thức đều True
 logical_and = p and q
+
+# Toán tử logic OR
+# Trả về True nếu ít nhất một trong hai biểu thức là True
 logical_or = p or q
+
+# Toán tử logic NOT
+# Trả về True nếu biểu thức là False, và ngược lại
 logical_not = not p
 
 print(f"the result of logical_and between p({p}) and q({q}) is {logical_and}")
@@ -43,7 +64,8 @@ print(f"the result of logical_not of p({p}) is {logical_not}")
 
 print("----------------------------------------------------------")
 
-# assignment operator with number(toán tử gán)
+# toán tử gán (assignment operators)
+# Toán tử gán được sử dụng để gán giá trị cho biến.
 counter = 5
 
 # cộng thêm 2
@@ -68,9 +90,20 @@ print("----------------------------------------------------------")
 a1 = 5      # dạng nhị phân: 0b0101
 b1 = 3      # dạng nhị phân: 0b0011
 
+# Toán tử bitwise AND
+# Trả về 1 nếu cả hai bit đều là 1
 bitwise_and = a1 & b1
+
+# Toán tử bitwise OR
+# Trả về 1 nếu ít nhất một trong hai bit là 1
 bitwise_or = a1 | b1
+
+# Toán tử bitwise XOR
+# Trả về 1 nếu hai bit khác nhau
 bitwise_xor = a1 ^ b1
+
+# Toán tử bitwise NOT
+# Đảo ngược tất cả các bit của số
 bitwise_not_a = ~a1
 
 print(f"the result of bitwise_and between a({a1}) and b1({b1}) is {bitwise_and}")
