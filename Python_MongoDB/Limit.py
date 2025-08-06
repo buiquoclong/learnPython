@@ -1,37 +1,51 @@
-# Lấy phương thức get_database từ lớp connection
+# Import phương thức get_database từ module db_connection
 from db_connection import get_database
 
-# Lấy đối tượng database
+# Lấy đối tượng database từ phương thức get_database
 db = get_database()
 
-# Tạo Collection(Bảng)
+# Đặt tên collection (tương đương với bảng trong SQL)
 collection_name = "accounts"
-# Gọi collection  (có thể tạo mới collection)
+
+# Truy cập collection có tên "accounts" trong database (nếu chưa có sẽ được tạo mới)
 collection = db[collection_name]
 
-# Lấy giới hạn 5 phần tử trong danh sách tất cả data
+# --------------------- LẤY DỮ LIỆU GIỚI HẠN ---------------------
+
+# Truy vấn: lấy 5 document đầu tiên trong collection
 result1 = collection.find().limit(5)
+# Duyệt qua và in ra từng document trong kết quả
 for doc_limit in result1:
     print("Data:", doc_limit)
 
-
-# Lấy giới hạn 5 phần tử bỏ 2 dòng đầu tiên trong danh sách tất cả data
+# Truy vấn: bỏ qua 2 document đầu tiên và lấy 5 document tiếp theo
 result2 = collection.find().skip(2).limit(5)
+# Duyệt qua và in ra từng document trong kết quả
 for doc_limit in result2:
     print("Data:", doc_limit)
 
+# --------------------- PHÂN TRANG DỮ LIỆU ---------------------
 
-# Lấy giới hạn số phần tử theo page và pagesize
+# Thiết lập số lượng document hiển thị mỗi trang
 pagesize = 5
+
+# Nhập số trang muốn xem từ người dùng
 page_input = input("Please enter your page: ")
 
-
+# Kiểm tra xem người dùng có nhập số hợp lệ hay không
 if page_input.isdigit():
+    # Chuyển đổi input thành số nguyên và trừ 1 để phù hợp với chỉ số (index bắt đầu từ 0)
     page = int(page_input) - 1
-    print(page*pagesize)
-    result2 = collection.find().skip((page) * pagesize).limit(pagesize)
+
+    # Hiển thị vị trí bắt đầu của dữ liệu cần truy xuất (chỉ để debug)
+    print(page * pagesize)
+
+    # Truy vấn: bỏ qua số document tương ứng với số trang và lấy pagesize document tiếp theo
+    result2 = collection.find().skip(page * pagesize).limit(pagesize)
+
+    # Duyệt qua và in ra từng document trong kết quả
     for doc_limit in result2:
         print("Data:", doc_limit)
 else:
+    # Thông báo nếu người dùng nhập không hợp lệ
     print("Invalid input. Please enter a number")
-
